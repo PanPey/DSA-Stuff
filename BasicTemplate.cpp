@@ -50,12 +50,22 @@ void run_case(){
 }
 signed main()
 {
+    #ifndef ONLINE_JUDGE
+      auto begin = high_resolution_clock::now();
+    #endif
+
    ios_base::sync_with_stdio(false);
    cin.tie(nullptr); cout.tie(nullptr);      
    inout();                     
    int t;
    cin >> t;
    while(t--){
-    solve(); 
- }
+    solve();   
+  }
+
+  #ifndef ONLINE_JUDGE
+    auto end = high_resolution_clock::now();
+    cout << "\nExecution time: " << duration_cast<milliseconds>(end - begin).count() << " ms" << endl;
+  #endif
+
 }
