@@ -1,5 +1,6 @@
 #include "bits/stdc++.h"   //precompile header files for faster compilation time in loacal machine
 using namespace std;
+using namespace chrono;
 
 #define int              long long
 #define ld               long double
