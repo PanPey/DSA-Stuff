@@ -26,7 +26,7 @@ cout << dp[n-1] << endl;
 }
 
 
-signed main()
+int main()
 {
     #ifndef ONLINE_JUDGE
     freopen("Input.txt", "r", stdin);
