@@ -6,7 +6,7 @@ const int INF = 1e7;
 const int mod = 1e9+7;
 
 int n, m, ans;
-vector<vector<bool>> vis;
+int vis[1001][1001];
 vector<pair<int, int>> moves = {{-1,0}, {1,0}, {0,-1}, {0,1}};
  
 //1- isValid Function
@@ -21,7 +21,7 @@ return true;
  
 //3- dfs for grid problems
 void dfs(int i, int j){
-	vis[i][j] = true;
+	vis[i][j] = 1;
  
 	for(auto p : moves){
 	 if(isValid(i+p.first, j+p.second)){
@@ -59,20 +59,13 @@ void solve(){
  
   //int n, m;
   cin >> n >>m;
-  vis.resize(n);
   
-  for(int i = 0; i < n; ++i)
-	{
-		vis[i].resize(m);
-	}
- 
-  //char a[n][m]; 
   for(int i=0; i<n; i++){
   	for(int j=0; j<m; j++){
   	   char c;
   	 	cin >> c;
   		if(c == '#')
-  			vis[i][j] = true;
+  			vis[i][j] = 1;
   	}
   }
  
