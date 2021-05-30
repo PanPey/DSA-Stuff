@@ -42,12 +42,8 @@ void inout()
     #endif // ONLINE_JUDGE
 }
 
-void preCalculation(){
-
-}
-
-void run_case(){
-  //preCalculation();
+void solve(){
+  
 }
 signed main()
 {
@@ -66,7 +62,7 @@ signed main()
 
   #ifndef ONLINE_JUDGE
     auto end = high_resolution_clock::now();
-    cout << "\nExecution time: " << duration_cast<milliseconds>(end - begin).count() << " ms" << endl;
+   // cout << "\nExecution time: " << duration_cast<milliseconds>(end - begin).count() << " ms" << endl;
   #endif
 
 }
