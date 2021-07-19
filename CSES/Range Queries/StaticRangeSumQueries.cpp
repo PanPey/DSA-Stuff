@@ -14,7 +14,7 @@ using namespace std;
 #define sz(x)             ((int)(x).size())
 #define endl              '\n'
 #define output_vector(A)  for (auto i: A) cout << i << " "; cout << '\n'
-
+ 
 void __print(int x) {cerr << x;}
 void __print(float x) {cerr << x;}
 void __print(double x) {cerr << x;}
@@ -23,7 +23,7 @@ void __print(char x) {cerr << '\'' << x << '\'';}
 void __print(const char *x) {cerr << '\"' << x << '\"';}
 void __print(const string &x) {cerr << '\"' << x << '\"';}
 void __print(bool x) {cerr << (x ? "true" : "false");}
-
+ 
 template<typename T, typename V>
 void __print(const pair<T, V> &x) {cerr << '{'; __print(x.first); cerr << ','; __print(x.second); cerr << '}';}
 template<typename T>
@@ -36,54 +36,46 @@ void _print(T t, V... v) {__print(t); if (sizeof...(v)) cerr << ", "; _print(v..
 #else
 #define debug(x...)
 #endif
-
-
+  
 //useful for sorting vector of string lengthwise. Just use sort(first, last,  compare)
 bool compare(const std::string& a, const std::string& b){
   return (a.size() < b.size()); 
 }
-
-vector <int> pre(200001);
-
+ 
+ 
 void solve() {
-
+ 
 int n, q, a, b;
 cin >> n >> q;
-
-vi v(n);
+ 
+int v[n];
 rep(i,0,n){
   cin >> v[i];
 }
 
+int pre[200001];
 pre[0] = 0;
-
-rep(i,0,n){
-  pre[i+1] = pre[i] + v[i];
+ rep(i,1,n+1){
+  pre[i] = pre[i-1] + v[i-1];
 }
-
-
-
-while(q--){
-
-  cin >> a >> b;
-  
-  int ans = pre[b] - pre[a-1];
-
-  cout << ans << endl;
-
-}
-
-}
-
-signed main()
-{
  
-     ios_base::sync_with_stdio(false);
+while(q--){ 
+  cin >> a >> b;
+  int ans = pre[b] - pre[a-1];
+  cout << ans << endl;
+   }
+}
+ 
+signed main()
+{  
+    ios_base::sync_with_stdio(false);
     cin.tie(nullptr); cout.tie(nullptr);      
-                     
     int t=1;
-     //cin >> t;
+    //cin >> t;
     while(t--){
       solve();   
   }
 }
+
+//TC---O(N) for making prefix array and O(1) for ansswering queries
+//SC---O(N)
