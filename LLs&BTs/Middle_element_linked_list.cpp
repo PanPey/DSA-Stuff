@@ -12,8 +12,8 @@ class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
      
-        // I use two pointers- fast and slow pointer. Slow pointers iterates by one step while fast pointer interates by two steps. The moment fast pointers
-           // tail we stop and the node that slow pointers points will be our middle element.
+        // I use two pointers- fast and slow pointer. Slow pointer iterates by one step while fast pointer iterates by two steps. The moment fast pointer
+           //points or reaches tail we stop and the node that slow pointer points to will be our middle element.
       
         ListNode* fptr;
         ListNode* sptr;
