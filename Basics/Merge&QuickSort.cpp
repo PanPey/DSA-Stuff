@@ -1,3 +1,5 @@
+// Both merge and quicksort are DNC Algorithms
+
 #include <bits/stdc++.h>
 using namespace std;
  
@@ -5,6 +7,8 @@ using namespace std;
  
 void Merge(int arr[], int aux[], int low, int mid, int high)
 {
+ 
+ // aux is a temp array which we use to get a sorted array and finally we copy this array to our original array.
     int k = low, i = low, j = mid + 1;
  
     while (i <= mid && j <= high)
@@ -17,48 +21,55 @@ void Merge(int arr[], int aux[], int low, int mid, int high)
         }
     }
  
+ // if the right part is exhausted then copy all elemnets to aux.
     while (i <= mid) {
         aux[k++] = arr[i++];
     }
+
+ // if the left part is exhausted then copy all elemnets to aux.
+  while (j <= high) {
+        aux[k++] = arr[j++];
+    }
  
+ // just copy the elements to orih=ginal array
     for (int i = low; i <= high; i++) {
         arr[i] = aux[i];
     }
+ 
 }
  
 void mergesort(int arr[], int aux[], int low, int high)
 {
-    if (high == low) {   
-        return;
-    }
+
+     if(low>=high) //base case....if array has 0 or 1 element only
+       return;
  
-    int mid = (low + ((high - low) /2));
+ // Dividing step
+    int mid = (low + ((high - low)/2)); // use this to calculate mid to prevent integer overflow
  
     mergesort(arr, aux, low, mid);          
     mergesort(arr, aux, mid + 1, high);     
  
+ //merging the two parts
     Merge(arr, aux, low, mid, high);        
 }
 
 
 int partition(int a[], int start, int end)
 {
+
     int pivot = a[end];
- 
-    int pIndex = start;
- 
-    for (int i = start; i < end; i++)
-    {
-        if (a[i] <= pivot)
-        {
-            swap(a[i], a[pIndex]);
-            pIndex++;
+    int i = start-1;
+
+    for(int j=start; j<end; j++){
+        if(a[j]<=pivot){
+            i++;
+            swap(a[i], a[j]);
         }
     }
- 
-    swap (a[pIndex], a[end]);
- 
-    return pIndex;
+
+   swap(a[i+1], a[end]);
+   return i+1;
 }
  
 void quicksort(int a[], int start, int end)
@@ -67,8 +78,10 @@ void quicksort(int a[], int start, int end)
         return;
     }
  
+ // dividing the array about pivot
     int pivot = partition(a, start, end);
  
+ // recursivley calling quicksort on left part and right part for sorting
     quicksort(a, start, pivot - 1);
  
     quicksort(a, pivot + 1, end);
@@ -98,8 +111,5 @@ int main(void)
     
 }
 
-// Merge Sort : TC ---> O(nlogn).....not in place sort... requires more space than quicksort
-// Quick Sort :TC ---> O(n*n) and O(nlogn) in best case.....in place....requires less space than mergesort
-
-
-
+// Merge Sort : TC ---> O(nlogn).....not in place sorting algo... requires more space than quicksort
+// Quick Sort :TC ---> O(n*n) and O(nlogn) in average case.....in place sorting algo....requires less space than mergesort
