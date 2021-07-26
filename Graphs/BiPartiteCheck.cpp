@@ -1,5 +1,4 @@
-//Note: If there is an odd length cycle in a grapg then it can't be a bi paritite.
-// Otherwise it is.
+// Note: If there is an odd length cycle in a graph then it can't be bi-paritite.
 // Below is a bfs based sol...
 class Solution {
 public:
