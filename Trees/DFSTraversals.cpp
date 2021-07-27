@@ -1,4 +1,4 @@
-//ALL DFS Traversals
+//ALL DFS Traversals  TC and SC-->O(n)
 
 #include "bits/stdc++.h"
 using namespace std;
