@@ -36,3 +36,25 @@ bool bfsDetectCycle(int node, vector<int>adj[], int vis[]){
        return false;
 
     }
+
+
+// Directed Graph
+// Using DFS
+
+
+
+
+
+
+
+
+//Note: In DG Cycle detection can also be checked using BFS Topo SOrt(Kahn's)
+// If Topo sort can't be generated then the graph must be cyclic.
+
+
+
+
+
+
+
+
