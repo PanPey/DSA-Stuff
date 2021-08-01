@@ -1,3 +1,4 @@
+// Note--->  Topo Sort is only possible in DAG
 // Method 1 --- using DFS 
 // TC ---> O(V+E)
 // SC ---> O(V+V) for stack and visited array and also aux. space due to dfs recursion
