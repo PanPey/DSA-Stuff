@@ -37,3 +37,46 @@ class Solution
 	    return ans;
 	}
 };
+
+
+// Method 2---> using BFS, also known as Kahn's Algo
+class Solution
+{
+	public:
+	//Function to return list containing vertices in Topological order. 
+	vector<int> topoSort(int N, vector<int> adj[]) 
+	{
+	    queue<int>q;
+	    vector<int>ans;
+	    vector<int>inDegree(N, 0);
+	    
+	    for(int i=0; i<N; i++){
+	        for(auto it:adj[i]){
+	            inDegree[it]++;
+	        }
+	    }
+	    
+	    for(int i=0; i<N; i++){
+	        if(inDegree[i]==0)
+	          q.push(i);
+	    }
+	    
+	    while(!q.empty()){
+	        int node = q.front();
+	        q.pop();
+	        ans.push_back(node);
+	        
+	        for(auto it: adj[node]){
+	            inDegree[it]--;
+	            if(inDegree[it] == 0){
+	                q.push(it);
+	            }
+	        }
+	    }
+	    
+	 return ans;
+	}
+};
+
+// TC ---> O(N+E)
+// SC --->  O(N)
