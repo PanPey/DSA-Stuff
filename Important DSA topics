@@ -1,0 +1,28 @@
+Sufficient and exhaustive list of important Data Structures and Algorithms
+
+Data Structures:
+-Arrays
+-Stacks
+-Queues
+-HashMaps
+-Heap/Priority Queue
+-Linkedlist
+-Binary Tress
+-BST
+-Graphs
+-Segment Trees
+-Trie
+
+*********************
+Algorithms:
+-Number Theory
+-Bit Manipulation
+-Recursion
+-Searching->Binary Search
+-Sorting-> Merge and QuickSort
+-Greedy
+-Misc.(Kadane's, Sliding Window and more)
+-Backtracking
+-DP
+-Tree Traversals
+-DFS,BFS, Djkstra's and more	
