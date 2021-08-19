@@ -10,32 +10,17 @@ class Solution {
 public:
     bool hasCycle(ListNode *head) {
         
-        ListNode* fptr;
-        ListNode* sptr;
-        fptr = sptr = head;
+        ListNode* fptr = head;
+        ListNode* sptr = head;
         while(fptr && fptr->next){
-            fptr = fptr->next;
+            fptr = fptr->next->next;
             sptr = sptr->next;
             
-            if(fptr){
-                fptr = fptr->next;
-            }
-            
             if(fptr==sptr){
-                sptr=head;
-                while(fptr!=sptr){
-                    sptr = sptr->next;
-                    fptr = fptr->next;
-                }
-                
-                if(sptr)
-                    return true;
+                   return true;
             }
-            
-        }
-  
-        return false;
-       
+         }
+        return false;     
     }
 };
 
